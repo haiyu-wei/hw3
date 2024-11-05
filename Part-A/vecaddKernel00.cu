@@ -10,7 +10,6 @@
 /// This Kernel adds two Vectors A and B in C on GPU
 /// without using coalesced memory access.
 /// 
-
 __global__ void AddVectors(const float* A, const float* B, float* C, int N)
 {
     int blockStartIndex  = blockIdx.x * blockDim.x * N;
@@ -20,5 +19,6 @@ __global__ void AddVectors(const float* A, const float* B, float* C, int N)
 
     for( i=threadStartIndex; i<threadEndIndex; ++i ){
         C[i] = A[i] + B[i];
+        
     }
 }
